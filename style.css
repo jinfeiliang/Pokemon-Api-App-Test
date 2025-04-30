@@ -1,4 +1,240 @@
+@font-face {
+  font-family: 'VT323';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/vt323/v17/pxiKyp0ihIEF2isfFJU.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  line-height: 1.6;
+  letter-spacing: 0em;
+}
+
 html {
   height: 100%;
   width: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+nav {
+  background: #de4949;
+  height: 100px;
+  border-bottom: 4px solid black;
+}
+select {
+  font-family: inherit;
+}
+
+main {
+  background-color: #313131;
+  display: flex;
+  flex-direction: column;
+}
+
+#Pokemons-Filter-Container {
+  border-top: 3px solid #000000;
+  border-bottom: 3px solid #000000;
+  background-color: #181818;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: white;
+}
+
+#Pokemon-Filter-Left {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+#Pokemon-Filter-Name-Or-ID-Container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px;
+}
+#Pokemon-Filter-Name-Or-ID {
+  padding: 8px;
+  border-radius: 10px;
+  font-family: 'VT323';
+  font-size: 1.5rem;
+  border: 2px solid gray;
+}
+
+#Pokemon-Types-Filter-Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  flex-grow: 1;
+}
+
+.Pokemon-Types-Filter-Btn {
+  border: none;
+  cursor: pointer;
+  flex-basis: 150px;
+  flex-grow: 1;
+  padding: 0;
+  background-color: transparent;
+}
+
+.Pokemon-Types-Filter-Btn:hover {}
+
+.Pokemon-Types-Display {
+  padding: 8px;
+  /* border: 2px solid white; */
+  border-radius: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 'VT323';
+  color: white;
+  font-size: 1.5rem;
+}
+
+#Pokemons-Other-Options-Container {
+  background-color: white;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  gap: 8px;
+}
+
+.Pokemon-Filter-Select-Wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.Pokemon-Filter-Select-Wrapper > label {
+  text-align: center;
+}
+.Pokemon-Filter-Select-Wrapper > select {
+  padding: 8px;
+}
+
+
+
+#Pokemons-Container {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  justify-content: center;
+  flex-grow: 1;
+  font-family: 'VT323';
+}
+
+.Loading-Screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #191c1d;
+  filter: grayscale(1) invert(1) brightness(2.5) contrast(1);
+}
+
+
+.Pokemon-Card {
+  /* border: 2px solid black; */
+  padding: 8px;
+  width: 300px;
+  overflow: hidden;
+}
+
+.Pokemon-Card-Img {
+  width: 300px;
+  height: 300px;
+  background-color: #dadada;
+  border-radius: 20px;
+  padding: 8px;
+}
+
+.Pokemon-Card-Under-Img {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-size: 1.5rem;
+}
+
+.Pokemon-Card-Name {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: black;
+  font-size: 3rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Pokemon-Card-Types-Wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-top: 8px;
+}
+
+.Pokemon-Card-Types {
+  flex-basis: 150px;
+  flex-grow: 1;
+}
+.Pokemon-Card-Types:first-child:not(:only-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.Pokemon-Card-Types:last-child:not(:only-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.ShowMorePokemon-Wrapper {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+#ShowMorePokemon {
+  padding: 8px;
+  border-radius: 10px;
+  font-family: 'VT323';
+  font-size: 1.5rem;
+  border: 2px solid gray;
+  position: relative;
+  background-color: red;
+  color: white;
+  margin: 8px;
+  width: 50%;
+  cursor: pointer;
+}
+
+footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #171717;
+  color: white;
+  font-family: 'VT323';
+  font-size: 1.2rem;
+  padding: 25px;
+  position: fixed;
+  
 }
