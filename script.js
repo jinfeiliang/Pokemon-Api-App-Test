@@ -129,7 +129,7 @@ function createCardTemplate(PokemonDataRaw) {
             <p class="Pokemon-Card-Pokedex-Id">${"#" + Pokemon_ID_Edited}</p>
             <p class="Pokemon-Card-Pokedex-Exp">Exp: ${PokemonData.base_exp}</p>
           </div>
-          <a class="Pokemon-Card-Name" href="${Pokemon_Page(PokemonData.id)}">${PokemonData.name}</a>
+          <a disabled class="Pokemon-Card-Name">${PokemonData.name}</a>
           <div class="Pokemon-Card-Types-Wrapper">
             ${types_template}
           </div>
