@@ -16,7 +16,6 @@ let ShowMorePokemonBTN_DOM = document.querySelector("#ShowMorePokemon");
 
 let Maximum_Displaying_Pokemon = 100;
 
-// const Pokemon_Types = ["normal","fire","water","electric","grass","ice","fighting","poison","ground","flying","psychic","bug","rock","ghost","dragon","dark","steel","fairy","reset"];
 
 const Pokemon_Types = [
   { type: "normal", color: "rgb(168, 167, 122)", text_color: "white" },
@@ -57,8 +56,7 @@ Pokemon_Types.forEach(function(Element) {
 });
 
 
-// constructor for links
-// to do
+
 function doThisPokemonHasThisType(Pokemon, TypeToFind) {
   let types = Pokemon.types;
   let found = false;
@@ -203,40 +201,6 @@ Pokemon_Select_Sprite_DOM.addEventListener("change", () => displayCard());
 
 
 
-// function GetAllPokemonDataUntil(MaxIndex) {
-//   let pendingRequests = MaxIndex;
-//   Pokemons_Container_DOM.innerHTML = `<div class="Loading-Screen"><img src="https://cdn.dribbble.com/userupload/21186314/file/original-b7b2a05537ad7bc140eae28e73aecdfd.gif"></div>`
-//   for (let Count = 1; Count <= MaxIndex; Count++) {
-//     let PokeApiPokemonLink = ""
-//     if (Count > 1025) {
-//       PokeApiPokemonLink = GetPokeApiLinkPokemonData(10000 + (Count - 1025));
-//     } else {
-//       PokeApiPokemonLink = GetPokeApiLinkPokemonData(Count);
-//     }
-//     if (localStorage.getItem(PokeApiPokemonLink)) {
-//       const Response = JSON.parse(localStorage.getItem(PokeApiPokemonLink));
-//       Pokemon_List_Array_To_Show.push(Response)
-//     } else {
-//       const RequestXML = new XMLHttpRequest;
-//       RequestXML.onreadystatechange = function() {
-//         if (this.readyState == 4 && this.status == 200) {
-//           const Response = JSON.parse(RequestXML.responseText);
-//           // localStorage.setItem(PokeApiPokemonLink, RequestXML.responseText);
-//           Pokemon_List_Array_To_Show.push(Response);
-//           Pokemon_Names_Datalist.insertAdjacentHTML("beforeend", `<option>${Response.name}</option>`)
-//           pendingRequests--;
-//           if (pendingRequests === 0) {
-//             console.log("No Pending")
-//             displayCard();
-//           }
-//         }
-//       }
-//       RequestXML.open("GET", PokeApiPokemonLink);
-//       RequestXML.send();
-//     }
-//   }
-// }
-
 async function GetAllPokemonDataUntil(MaxIndex) {
   Pokemons_Container_DOM.innerHTML = `<div class="Loading-Screen"><img src="https://cdn.dribbble.com/userupload/21186314/file/original-b7b2a05537ad7bc140eae28e73aecdfd.gif"></div>`
   try {
@@ -275,21 +239,6 @@ async function GetAllPokemonDataUntil(MaxIndex) {
 
 }
 
-
-
-// function getAllPokemonList(){
-//   const PokemonListRequestXML = new XMLHttpRequest;
-//   PokemonListRequestXML.onreadystatechange = function(){
-//     if (this.readyState == 4 & this.status == 200) {
-//       const Response = JSON.parse(PokemonListRequestXML.responseText);
-//       const PokemonCount = Response.count;
-//       console.log("Max Count is:" + PokemonCount)
-//       GetAllPokemonDataUntil(PokemonCount);
-//     }
-//   }
-//   PokemonListRequestXML.open("GET", PokeApiLinkAllPokemon);
-//   PokemonListRequestXML.send();
-// }
 
 async function getAllPokemonList() {
   try {
